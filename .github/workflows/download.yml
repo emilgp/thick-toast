@@ -37,7 +37,7 @@ jobs:
 
       - name: Set variables
         run: |
-          echo "PACKAGE_VERSION=$(cat variables/VERSION)" >> $GITHUB_ENV
+          echo "PACKAGE_VERSION=$(cat ./VERSION)" >> $GITHUB_ENV
 
   use_version:
     needs: download_version
