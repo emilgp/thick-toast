@@ -35,6 +35,10 @@ jobs:
       - name: "Unzip artifact"
         run: unzip variables.zip
 
+      - name: Read variables
+        run: |
+          cat ./VERSION
+
       - name: Set variables
         run: |
           echo "PACKAGE_VERSION=$(cat ./VERSION)" >> $GITHUB_ENV
