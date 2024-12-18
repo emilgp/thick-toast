@@ -1,0 +1,22 @@
+name: Spike Upload
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: |
+          mkdir variables/
+          echo "123.4.5.6" > variables/VERSION
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: variables
+          path: variables/
