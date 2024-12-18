@@ -37,9 +37,13 @@ jobs:
 
       - name: Set variables
         run: |
-          VER=
           echo "PACKAGE_VERSION=$(cat variables/VERSION)" >> $GITHUB_ENV
-          
+
+  use_version:
+    needs: download_version
+    runs-on: ubuntu-latest
+
+    steps:  
       - name: Output variable
         run: echo "Package Version ${{ env.PACKAGE_VERSION }}"
         
